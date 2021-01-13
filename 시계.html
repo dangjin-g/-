@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 제일 좋은 defer 옵션 사용할것 / html파싱과  스크립트 다운로드를 비동기로 효율적으로 처리 함-->
+    <!-- <script defer src="js/main.js"></script>  -->
+</head>
+<body>
+
+    <h3>아날로그 시계</h3>
+
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+
+    <script>
+        const deg = 6;
+        const hr = document.getElementById("hr");
+        const mn = document.getElementById("mn");
+        const sc = document.getElementById("sc");
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+            console.log(hr);
+
+            hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        })
+
+    </script>
+</body>
+</html>
